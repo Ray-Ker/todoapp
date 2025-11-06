@@ -1,0 +1,168 @@
+*, html, body, #root {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+
+#root{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    background-color: rgb(26, 144, 248);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerSection{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.withSection{
+    width: 100%;
+    max-width: 960px;
+    padding: 1rem 1rem;
+}
+.mainBody{
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 160px); /* deja espacio para header y footer */
+  padding: 1rem;
+  overflow: hidden; /* evita que se desborde */
+}
+
+.formSection{
+    flex-grow: 1;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    border-bottom: 3px solid rgb(26, 144, 248);
+}
+
+.TaskSection{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    gap: 1rem;
+    width: 100%;   
+    min-height: 0;
+    overflow: hidden;
+}
+.containtHead{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+footer{
+    width: 100%;
+    background-color: rgb(26, 144, 248);
+    padding: 1rem 0;
+    height: 100%;
+}
+
+ #inputPrincipal{
+    width: 100%;
+    background-color: rgb(26, 144, 248);
+ }
+ button{
+    background-color: rgb(26, 144, 248);
+    font-weight: bolder;
+ }
+
+input, select{
+    background-color: white;
+    color: black;
+}
+
+input, button, select{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formGrid{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#inputMayor{
+    width: 100%;
+}
+label{
+    font-weight: bold;
+    color: black;
+}
+h2{
+    color: black;
+}
+
+
+
+.taskContain{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 6px;
+
+  overflow-y: auto;   
+  overflow-x: hidden; 
+  min-height: 0;
+  width: 100%;
+  color: black;
+}
+.taskItem{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 100%; 
+  word-break: break-word;
+  padding: 0.5rem;
+}
+.taskItem:nth-child(odd){
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+}
+.classGray{
+    color: gray;
+    font-size: small;
+}
+.formCompleteTask{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#blancoBoton{
+    background-color: white;
+    color: rgb(26, 144, 248);
+}
