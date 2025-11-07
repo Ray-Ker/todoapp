@@ -1,12 +1,14 @@
 import { Fragment, useState, useEffect } from "react";
 import "./todoapp.css";
 
-function Todoapp() {
+function Todoapp({ onLogout }) {
 
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [priority, setPriority] = useState("Nula");
+
+  const user = JSON.parse(localStorage.getItem('user'));
 
   // Cargar tareas desde el backend
   useEffect(() => {
@@ -20,7 +22,7 @@ function Todoapp() {
     e.preventDefault();
     if (!title.trim()) return alert("Escribe una tarea primero");
 
-    const newTask = { title, description: "", dueDate: date, priority };
+    const newTask = { title, dueDate: date, priority, userId: user._id };
 
     const res = await fetch("http://localhost:4000/tasks", {
       method: "POST",
@@ -56,8 +58,8 @@ function Todoapp() {
     <Fragment>
     <header>
         <section className="headerSection withSection">
-            <h1>To-do App</h1>
-            <button id="blancoBoton">Cerrar Sesion</button>
+            <h1>Todo List</h1>
+            <button id="blancoBoton" onClick={onLogout}>Cerrar Sesion</button>
         </section>
     </header>
     <main className="bodyArticle withSection">
@@ -92,7 +94,7 @@ function Todoapp() {
                     <option value="Baja">Baja</option>
                     </select>
                 </div>
-                <button type="submit" id="inputMayor"> + Agregar </button>
+                <button className="linearButton" type="submit" id="inputMayor"> + Agregar </button>
         </form>
 
         <section className="TaskSection">
@@ -107,7 +109,7 @@ function Todoapp() {
                     <p className="classGray">Prioridad: {task.priority}</p>
                     <p className="classGray">Fecha límite: {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : "Sin fecha"}</p>
                 </div>
-                <button onClick={() => handleDelete(task._id)}>X</button>
+                <button className="linearButton" onClick={() => handleDelete(task._id)}>X</button>
             </div>
             ))}
         </div>

@@ -39,7 +39,7 @@ header{
   max-width: 960px;
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   background-color: white;
 
   display: flex;
@@ -89,17 +89,60 @@ footer{
     width: 100%;
     background-color: rgb(26, 144, 248);
  }
- button{
-    background-color: rgb(26, 144, 248);
+ #blancoBoton{
+    background-color: white;
+    color: rgb(26, 144, 248);
     font-weight: bolder;
+    box-shadow: 0 4px 12px rgba(47, 128, 237, 0.2);
+}
+ .linearButton{
+    background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
+    font-weight: bolder;
+    box-shadow: 0 4px 12px rgba(47, 128, 237, 0.2);
  }
+ #blancoBoton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(47, 128, 237, 0.4);
+}
+ .linearButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(47, 128, 237, 0.4);
+}
+
+
+input,select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #E3F2FD;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  background: #F8FBFF;
+}
+
+input:focus {
+  outline: none;
+  border-color: #56CCF2;
+  box-shadow: 0 0 0 3px rgba(86, 204, 242, 0.1);
+  background: white;
+}
+
+input:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
 
 input, select{
     background-color: white;
     color: black;
 }
 
-input, button, select{
+button, select{
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border: 1px solid #ccc;
@@ -162,7 +205,5 @@ h2{
     align-items: flex-start;
 }
 
-#blancoBoton{
-    background-color: white;
-    color: rgb(26, 144, 248);
-}
+
+

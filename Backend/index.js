@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import taskRoutes from "./routes/tasks.js";
+import authRoutes from "./routes/auth.js"
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
   res.send("Servidor backend funcionando 🚀");
 });
 
+app.use("/api/auth", authRoutes);
 app.use("/tasks", taskRoutes);
 
 // Puerto

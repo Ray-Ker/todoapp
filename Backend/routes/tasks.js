@@ -5,18 +5,20 @@ const router = express.Router();
 
 
 router.get("/", async (req, res) => {
-    const tasks = await Task.find();
+    const { userId } = req.query;
+    const tasks = await Task.find({userId});
     res.json(tasks);
 })
 
 router.post("/", async (req, res) => {
     try{
-        const newTask = new Task(req.body);
+        const {title,dueDate,priority,userId} = req.body;
+        const newTask = new Task({title, dueDate, priority, userId});
         const savedTask = await newTask.save();
         res.status(201).json(savedTask);
     }
     catch(err){
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: err.message });
     }
 });
 
